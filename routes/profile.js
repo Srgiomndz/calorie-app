@@ -4,12 +4,6 @@ const upload = require('../middleware/multer')
 const profileController = require('../controllers/profile')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
+router.put('/updateProfile', upload.single('file'), profileController.updateProfile)
 
-
-
-// Profile routes - can expand on this to edit profile info like, age, height etc
-
-router.put("/updateProfile", upload.single("file"), profileController.updateProfile);
-
-
-module.exports = router;
+module.exports = router

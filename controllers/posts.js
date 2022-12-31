@@ -1,7 +1,9 @@
-const cloudinary = require('../middleware/cloudinary')
 const Post = require('../models/Post')
 const Comment = require('../models/Comment')
 const DailyEntry = require('../models/DailyEntry')
+
+// Posts controller. This controller handles every action related to posts
+
 module.exports = {
    getPostHome: async (req, res) => {
       try {
@@ -12,7 +14,6 @@ module.exports = {
          console.log(error)
       }
    },
-
    getProfile: async (req, res) => {
       try {
          const posts = await Post.find({ user: req.user.id })
@@ -35,7 +36,6 @@ module.exports = {
             intake.push(entryObj.intake)
             weight.push(entryObj.weight)
          })
-
          res.render('dashboard.ejs', { user: req.user, intake: intake, weight: weight })
       } catch (err) {
          console.log(err)
@@ -43,8 +43,8 @@ module.exports = {
    },
    getPost: async (req, res) => {
       try {
-         const post = await Post.findById(req.params.id)
-         const comment = await Comment.find({ postid: req.params.id })
+         const post = await Post.findById(req.params.id).populate('user')
+         const comment = await Comment.find({ postid: req.params.id }).populate('user')
          res.render('post.ejs', { post: post, user: req.user, comment: comment })
       } catch (err) {
          console.log(err)
@@ -52,20 +52,23 @@ module.exports = {
    },
    createPost: async (req, res) => {
       try {
+         const typeOfPost = req.body.typeOfPost
+         let image = ''
+         if (typeOfPost === 'idea') {
+            image =
+               'https://res.cloudinary.com/drwc5fc2r/image/upload/v1671416829/lightbulb_tkpg6m.png'
+         } else {
+            image =
+               'https://res.cloudinary.com/drwc5fc2r/image/upload/v1671420988/640px-Question_mark__28black_29.svg_yrp7wm.png'
+         }
 
-         // if (typeOfPost === 'idea') {
-         //    let daImage = //lightbulb
-         // } else {
-         //    let daImage = // question mark
-         // }
-
-         // await Post.create({
-         //    title: req.body.title,
-         //    image: result.secure_url,
-         //    message: req.body.message,
-         //    likes: 0,
-         //    user: req.user.id,
-         // })
+         await Post.create({
+            title: req.body.title,
+            image: image,
+            message: req.body.message,
+            likes: 0,
+            user: req.user.id,
+         })
          console.log('Post created!')
          res.redirect('/post/home')
       } catch (err) {
@@ -88,16 +91,12 @@ module.exports = {
    },
    deletePost: async (req, res) => {
       try {
-         // Find post by id
          let post = await Post.findById({ _id: req.params.id })
-         // Delete image from cloudinary
-         await cloudinary.uploader.destroy(post.cloudinaryId)
-         // Delete post from db
          await Post.remove({ _id: req.params.id })
-         console.log('Deleted Post')
-         res.redirect('/profile')
+         console.log('Post deleted')
+         res.redirect('/post/home')
       } catch (err) {
-         res.redirect('/profile')
+         console.log(err)
       }
    },
 }
