@@ -13,65 +13,65 @@ const postRoutes = require('./routes/posts')
 const commentRoutes = require('./routes/comments')
 const profileRoutes = require('./routes/profile')
 
-//Use .env file in config folder
+//use .env file in config folder
 require('dotenv').config({ path: './config/.env' })
 
-// Passport config
+//passport config
 require('./config/passport')(passport)
 
-//Connect To Database
+//connection to DB
 connectDB()
 
-//Using EJS for views
+//using ejs for views
 app.set('view engine', 'ejs')
 
-//Static Folder
-app.use("/public", express.static('public'))
+//static folder containing css,js and images
+app.use('/public', express.static('public'))
 
-//Body Parsing
+//body parsing
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-//Logging
+//logging - HTTP request logger
 app.use(logger('dev'))
 
-//Use forms for PUT / DELETE
+//use forms for PUT / DELETE
 app.use(methodOverride('_method'))
 app.use(
-  methodOverride(function (req, res) {
-    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-      // look in urlencoded POST bodies and delete it
-      var method = req.body._method
-      delete req.body._method
-      return method
-    }
-  })
+   methodOverride(function (req, res) {
+      if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+         // look in urlencoded POST bodies and delete it
+         var method = req.body._method
+         delete req.body._method
+         return method
+      }
+   })
 )
 
-// Setup Sessions - stored in MongoDB
+//setup Sessions - stored in MongoDB
 app.use(
-  session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  })
+   session({
+      secret: 'keyboard cat',
+      resave: false,
+      saveUninitialized: false,
+      store: new MongoStore({ mongooseConnection: mongoose.connection }),
+   })
 )
 
-// Passport middleware
+//passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
 
-//Use flash messages for errors, info, ect...
+//use flash messages for errors, info, ect...
 app.use(flash())
 
-//setup routes for which the server is listening
+//routes that the server is listening to
 app.use('/', mainRoutes)
 app.use('/post', postRoutes)
 app.use('/comment', commentRoutes)
 app.use('/edit', profileRoutes)
 
-//Server Running
+//what port our server is listening to
 app.listen(process.env.PORT, () => {
-  console.log('Server is running, you better catch it!')
+   console.log('Server is running, you better catch it!')
 })

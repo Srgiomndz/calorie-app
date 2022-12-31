@@ -1,4 +1,4 @@
-// JS for profile.ejs 
+// JS for profile.ejs
 let modal = document.getElementById('my-modal')
 let btn = document.getElementById('open-btn')
 let button = document.getElementById('ok-btn')
@@ -14,5 +14,3 @@ window.onclick = function (event) {
       modal.style.display = 'none'
    }
 }
-
-
