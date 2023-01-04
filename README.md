@@ -2,7 +2,15 @@
 
 Calorie-app is a social media/calorie tracking app. Some notable features include data visualizations using Chart.js and image uploads using Cloudinary. Calorie-app users can create an account and add daily calorie intake and their daily weight. The "Home" of the app serves as a Question and Answer section where members can create posts about questions they may have while other users can comment and give advice.
 
+
+## Profile updates
+
 ![profile gif](https://user-images.githubusercontent.com/26800385/210625055-872d6a7a-c231-463e-becb-442a5a3a59a5.gif)
+
+## Chart.js functionality
+
+![chart gif](https://user-images.githubusercontent.com/26800385/210626133-0390d3c9-53da-446e-81f6-554293e1c32c.gif)
+
 
 
 
