@@ -1,35 +1,35 @@
 # calorie-app
 
-Calorie-app is a social media/calorie tracking app. Some notable features include data visualizations using Chart.js and image upload using Cloudinary. Calorie-app users have the ability to create an account and add daily calorie intake along with their daily weight. The "Home" of the app serves as Question and Answer section where members can create posts about questions they may have while other users can comment and give advice.
+Calorie-app is a social media/calorie tracking app. Some notable features include data visualizations using Chart.js and image uploads using Cloudinary. Calorie-app users can create an account and add daily calorie intake and their daily weight. The "Home" of the app serves as a Question and Answer section where members can create posts about questions they may have while other users can comment and give advice.
 
 **Link to project:** [calorie-app](https://icy-glade-9716.fly.dev/)
 
 ## How It's Made:
 
-On the front end I used EJS and TailwindCSS and on the backend Node and express are being used.
+On the front end, I used EJS and TailwindCSS, and on the back end,  I used Node and express. 
 
-MongoDB was used along with Mongoose as the ODM.
+For storage, I used MongoDB and Mongoose.
 
-For authentication I went with Passport.js and local strategy.
+For authentication, I went with Passport.js and local strategy.
+
+I also used a few packages like Method-Override to allow us to use HTTP verbs such as PUT and DELETE in places where the client does not support them. 
 
 
-I also made use of a few packages like Method-Override to allow us to use HTTP verbs such as PUT and DELETE in places where the client does not support it. 
-
-
-**Tech used:** Node.js, Express.js, HTML, CSS, TailwindCSS, EJS, MongoDB, Cloundinary, Chart.js
+**Tech used:** Node.js, Express.js, HTML, CSS, TailwindCSS, EJS, MongoDB, Cloudinary, Chart.js
 
 ## Optimizations
 
-Features and changes to come:
+Features and changes to come
 
-I would like to add a "like" functionality to posts
-
-Nested comments, so that other users can reply to a comment
+I want to add a "like" functionality to posts
+Adding nested comments to show replies to comments
 
 Friending
 
 ## Lessons Learned:
 
-This was a really fun project to work on that made me realize how much I enjoy Full stack development.
+Calorie-app was a fun project that made me realize how much I enjoy Full stack development.
 
-Using TailwindCSS in this project really showed me how powerful tailwind can be. While it can make HTML a little cluttered I can definitely see the time savings of being able to quickly style while writing html at the same time. Not to mention other things that TailwindCSS offers that I am excited to explore in the future!
+Using TailwindCSS in this project showed me how powerful tailwind can be. While it can make HTML a little cluttered, I see the time savings of being able to style while writing HTML at the same time quickly. Not to mention other things that TailwindCSS offers that I am excited to explore in the future!
+
+I have plans to convert this project to React! Converting this from EJS to React could offer some fun learning opportunities.
