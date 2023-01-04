@@ -2,13 +2,13 @@
 
 Calorie-app is a social media/calorie tracking app. Some notable features include data visualizations using Chart.js and image upload using Cloudinary. Calorie-app users have the ability to create an account and add daily calorie intake along with their daily weight. The "Home" of the app serves as Question and Answer section where members can create posts about questions they may have while other users can comment and give advice.
 
-**Link to project:**
+**Link to project:** [I'm an inline-style link](https://icy-glade-9716.fly.dev/)
 
 ## How It's Made:
 
 On the front end I used EJS and TailwindCSS and on the backend Node and express are being used.
 
-MongoDB was used as the DB of choice and Mongoose as the ODM.
+MongoDB was used along with Mongoose as the ODM.
 
 For authentication I went with Passport.js and local strategy.
 
