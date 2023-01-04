@@ -19,10 +19,10 @@ I also used a few packages like Method-Override to allow us to use HTTP verbs su
 
 ## Optimizations
 
-Features and changes to come
+Features and changes to come:
 
-I want to add a "like" functionality to posts
-Adding nested comments to show replies to comments
+1. I want to add a "like" functionality to posts
+2. Adding nested comments to show replies to comments
 
 Friending
 
