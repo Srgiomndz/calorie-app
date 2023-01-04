@@ -2,7 +2,7 @@
 
 Calorie-app is a social media/calorie tracking app. Some notable features include data visualizations using Chart.js and image upload using Cloudinary. Calorie-app users have the ability to create an account and add daily calorie intake along with their daily weight. The "Home" of the app serves as Question and Answer section where members can create posts about questions they may have while other users can comment and give advice.
 
-**Link to project:** [I'm an inline-style link](https://icy-glade-9716.fly.dev/)
+**Link to project:** [calorie-app](https://icy-glade-9716.fly.dev/)
 
 ## How It's Made:
 
