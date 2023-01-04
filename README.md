@@ -23,8 +23,7 @@ Features and changes to come:
 
 1. I want to add a "like" functionality to posts
 2. Adding nested comments to show replies to comments
-
-Friending
+3.Friending
 
 ## Lessons Learned:
 
